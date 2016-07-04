@@ -1,0 +1,86 @@
+/**
+ * Created by AshZhang on 15/11/9.
+ */
+
+
+@import './../common/styles/modules/_variables';
+@import './../common/styles/modules/_mixins';
+
+
+@menu-width:  45%;
+
+.dropdown-mounted {
+  padding-top: @control-base-size;
+}
+
+.dropdown {
+  background: @color-bg-lighter;
+  border-bottom: @border-width solid @color-border;
+  font-size: @font-sm;
+  line-height: @control-base-size - @border-width;
+  padding-right: @gap * 2;
+  position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: @z-dropdown;
+}
+
+.dropdown-header {
+  display: table;
+  width: 100%;
+
+  .check-btn-checked {
+    color: @color-primary;
+  }
+}
+
+.dropdown-list {
+  background: @color-bg-lighter;
+  border-bottom: @border-width solid @color-border;
+  border-top: @border-width solid @color-border;
+  position: absolute;
+    left: 0;
+    right: 0;
+    top: @control-base-size;
+    z-index: @z-dropdown;
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+  -webkit-transition: all @duration linear;
+  transition: all @duration linear;
+}
+
+.dropdown-menus,
+.dropdown-items {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.dropdown-menus {
+  background: darken(@color-bg-lighter, 3);
+  border-right: @border-width solid @color-border;
+  width: @menu-width;
+}
+
+.dropdown-items {
+  background: @color-bg-lighter;
+  width: 100% - @menu-width;
+}
+
+
+// Animations
+// ---------------------------
+
+.dropdown-enter,
+.dropdown-leave.dropdown-leave-active {
+  opacity: 0;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+}
+
+.dropdown-enter-active,
+.dropdown-leave {
+  opacity: 1;
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
